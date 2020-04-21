@@ -1,1 +1,1 @@
-export {KeaClient} from "./kea-client";
+export { KeaClient } from './kea-client';

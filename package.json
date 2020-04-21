@@ -1,0 +1,19 @@
+{
+  "name": "kea-dhcp-rest-client",
+  "version": "0.1.0",
+  "description": "A client for REST API of Kea DHCP server",
+  "homepage": "https://github.com/egs33/kea-dhcp-rest-client",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/egs33/kea-dhcp-rest-client"
+  },
+  "keywords": [
+    "Kea",
+    "Kea DHCP server"
+  ],
+  "author": "egs33",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

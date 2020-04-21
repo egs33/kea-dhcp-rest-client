@@ -13,7 +13,14 @@
   ],
   "author": "egs33",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "build:esm": "tsc --build tsconfig_esm.json"
+  },
   "devDependencies": {
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
   }
 }

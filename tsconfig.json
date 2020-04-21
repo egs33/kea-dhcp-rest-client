@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig_base",
+  "compilerOptions": {
+    "module": "UMD"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "files": [
+    "src/index.ts"
+  ],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "declaration": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "target": "es2019",
+    "outDir": "dist"
+  }
+}

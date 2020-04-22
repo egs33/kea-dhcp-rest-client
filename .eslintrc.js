@@ -11,6 +11,9 @@ module.exports = {
   },
   rules: {
     "import/prefer-default-export": "off",
-    "import/no-default-export": "error"
+    "import/no-default-export": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/method-signature-style": ["error", "property"],
   }
 };

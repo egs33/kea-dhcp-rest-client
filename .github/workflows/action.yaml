@@ -1,7 +1,7 @@
 name: ci
 on: [push]
 jobs:
-  lint:
+  lint-and-build:
     runs-on: ubuntu-18.04
     container:
       image: node:12-alpine
@@ -14,3 +14,5 @@ jobs:
         run: yarn install
       - name: lint
         run: yarn lint
+      - name: build
+        run: yarn build

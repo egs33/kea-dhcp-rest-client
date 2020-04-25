@@ -1,4 +1,8 @@
 # kea-dhcp-rest-client
+[![npm version](https://badge.fury.io/js/kea-dhcp-rest-client.svg)](https://badge.fury.io/js/kea-dhcp-rest-client)
+[![](https://github.com/egs33/kea-dhcp-rest-client/workflows/ci/badge.svg?branch=master)](https://github.com/egs33/kea-dhcp-rest-client/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A client for kea rest API
 
 ## Install
@@ -51,4 +55,4 @@ For using builded for esm, import `kea-dhcp-rest-client/dist-esm`.
 ## Reference
 
 ### Kea API Reference
-https://kea.readthedocs.io/en/latest/api.html
+- https://kea.readthedocs.io/en/latest/api.html

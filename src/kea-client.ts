@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import {
-  NoArgResponse, Response, Services, ShutdownParam, Config, Status,
+import type {
+  NoArgResponse, Response, Services, Shutdown, Config, Status, Version,
 } from './types';
 
 interface ClientParams {
@@ -70,8 +70,8 @@ export class KeaClient {
     return this.request('build-report', service) as Promise<NoArgResponse>;
   }
 
-  public configGet(service?: Services): Promise<Response<Config.Config[]>> {
-    return this.request('config-get', service) as Promise<Response<Config.Config[]>>;
+  public configGet(service?: Services): Promise<Response<Config.Config>> {
+    return this.request('config-get', service) as Promise<Response<Config.Config>>;
   }
 
   public configReload(service?: Services): Promise<NoArgResponse> {
@@ -94,7 +94,7 @@ export class KeaClient {
     return this.request('list-commands', service) as Promise<NoArgResponse>;
   }
 
-  public shutdown(service: Services, param?: ShutdownParam): Promise<NoArgResponse> {
+  public shutdown(service: Services, param?: Shutdown.ShutdownParam): Promise<NoArgResponse> {
     return this.request('shutdown', param) as Promise<NoArgResponse>;
   }
 
@@ -102,7 +102,7 @@ export class KeaClient {
     return this.request('status-get', service) as Promise<Response<Status.Status>>;
   }
 
-  public versionGet(service: Services): Promise<NoArgResponse> {
-    return this.request('version-get', service) as Promise<NoArgResponse>;
+  public versionGet(service: Services): Promise<Response<Version.Version>> {
+    return this.request('version-get', service) as Promise<Response<Version.Version>>;
   }
 }

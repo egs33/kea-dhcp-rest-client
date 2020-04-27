@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import type {
-  NoArgResponse, Response, Services, Shutdown, Config, Status, Version,
+  NoArgResponse, Response, Services, Shutdown, Config, Status, Version, Lease,
 } from './types';
 
 interface ClientParams {
@@ -104,5 +104,49 @@ export class KeaClient {
 
   public versionGet(service: Services): Promise<Response<Version.Version>> {
     return this.request('version-get', service) as Promise<Response<Version.Version>>;
+  }
+
+  public lease4Add(lease4: Lease.Lease4): Promise<NoArgResponse> {
+    return this.request('lease4-add', ['dhcp4'], lease4) as Promise<NoArgResponse>;
+  }
+
+  public lease4Del(param: Lease.Lease4Query): Promise<NoArgResponse> {
+    return this.request('lease4-del', ['dhcp4'], param) as Promise<NoArgResponse>;
+  }
+
+  public lease4Get(param: Lease.Lease4Query): Promise<Response<Lease.Lease4Result>> {
+    return this.request('lease4-get', ['dhcp4'], param) as Promise<Response<Lease.Lease4Result>>;
+  }
+
+  public lease4GetAll(param: Lease.Lease4Query): Promise<Response<Lease.Lease4Results>> {
+    return this.request('lease4-get-all', ['dhcp4'], param) as Promise<Response<Lease.Lease4Results>>;
+  }
+
+  public lease4GetByClientId(param: Lease.ClientIdQuery): Promise<Response<Lease.Lease4Results>> {
+    return this.request('lease4-get-by-client-id', ['dhcp4'], param) as Promise<Response<Lease.Lease4Results>>;
+  }
+
+  public lease4GetByHostname(param: Lease.HostnameQuery): Promise<Response<Lease.Lease4Results>> {
+    return this.request('lease4-get-by-hostname', ['dhcp4'], param) as Promise<Response<Lease.Lease4Results>>;
+  }
+
+  public lease4GetByHwAddress(param: Lease.HwAddressQuery): Promise<Response<Lease.Lease4Results>> {
+    return this.request('lease4-get-by-hw-address', ['dhcp4'], param) as Promise<Response<Lease.Lease4Results>>;
+  }
+
+  public lease4ResendDdns(param: Lease.IpAddressQuery): Promise<Response<Lease.Lease4Result>> {
+    return this.request('lease4-resend-ddns', ['dhcp4'], param) as Promise<Response<Lease.Lease4Result>>;
+  }
+
+  public lease4Update(param: Lease.Lease4UpdateParam): Promise<NoArgResponse> {
+    return this.request('lease4-update', ['dhcp4'], param) as Promise<NoArgResponse>;
+  }
+
+  public lease4Wipe(param: Lease.WipeParam): Promise<NoArgResponse> {
+    return this.request('lease4-wipe', ['dhcp4'], param) as Promise<NoArgResponse>;
+  }
+
+  public leasesReclaim(services: Services, param: Lease.ReclaimParam): Promise<NoArgResponse> {
+    return this.request('leases-reclaim', services, param) as Promise<NoArgResponse>;
   }
 }

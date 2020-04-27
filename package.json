@@ -31,6 +31,7 @@
     "build:umd": "tsc",
     "build:esm": "tsc --build tsconfig_esm.json",
     "lint": "eslint src --ext .js,.ts",
-    "lint:fix": "eslint src --ext .js,.ts --fix"
+    "lint:fix": "eslint src --ext .js,.ts --fix",
+    "prepare": "yarn build"
   }
 }

@@ -78,13 +78,14 @@ export interface Reservation {
   'flex-id'?: string;
 }
 
-export interface Subnet4 {
+interface Subnet4 {
+  id?: number;
   pools?: {
     pool: string;
     'option-data'?: OptionData[];
-    'client-class': string;
+    'client-class'?: string;
   }[];
-  subnet?: string;
+  subnet: string;
   interface?: string;
   'reservation-mode'?: 'all' | 'out-of-pool';
   reservations?: Reservation[];

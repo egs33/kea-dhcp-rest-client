@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import type {
-  NoArgResponse, Response, Services, Shutdown, Config, Status, Version, Lease,
+  NoArgResponse, Response, Services, Shutdown, Config, Status, Version, Lease, Subnet,
 } from './types';
 
 interface ClientParams {
@@ -148,5 +148,25 @@ export class KeaClient {
 
   public leasesReclaim(services: Services, param: Lease.ReclaimParam): Promise<NoArgResponse> {
     return this.request('leases-reclaim', services, param) as Promise<NoArgResponse>;
+  }
+
+  public subnet4Add(param: Subnet.Subnet4): Promise<Response<Subnet.Subnet4>> {
+    return this.request('subnet4-add', ['dhcp4'], param) as Promise<Response<Subnet.Subnet4>>;
+  }
+
+  public subnet4Del(param: Subnet.IdQuery): Promise<Response<Subnet.Subnet4>> {
+    return this.request('subnet4-del', ['dhcp4'], param) as Promise<Response<Subnet.Subnet4>>;
+  }
+
+  public subnet4Get(param: Subnet.GetParam): Promise<Response<Subnet.Subnet4>> {
+    return this.request('subnet4-get', ['dhcp4'], param) as Promise<Response<Subnet.Subnet4>>;
+  }
+
+  public subnet4List(): Promise<Response<Subnet.Subnet4>> {
+    return this.request('subnet4-list', ['dhcp4']) as Promise<Response<Subnet.Subnet4>>;
+  }
+
+  public subnet4Update(param: Subnet.UpdateParam): Promise<Response<Subnet.Subnet4>> {
+    return this.request('subnet4-update', ['dhcp4'], param) as Promise<Response<Subnet.Subnet4>>;
   }
 }

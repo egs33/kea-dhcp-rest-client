@@ -4,3 +4,4 @@ export * as Status from './types/status';
 export * as Shutdown from './types/shutdown';
 export * as Version from './types/version';
 export * as Lease from './types/lease';
+export * as Subnet from './types/subnet';

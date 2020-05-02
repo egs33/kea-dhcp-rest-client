@@ -118,7 +118,7 @@ export class KeaClient {
     return this.request('lease4-get', ['dhcp4'], param) as Promise<Response<Lease.Lease4Result>>;
   }
 
-  public lease4GetAll(param: Lease.Lease4Query): Promise<Response<Lease.Lease4Results>> {
+  public lease4GetAll(param?: Lease.Lease4Query): Promise<Response<Lease.Lease4Results>> {
     return this.request('lease4-get-all', ['dhcp4'], param) as Promise<Response<Lease.Lease4Results>>;
   }
 

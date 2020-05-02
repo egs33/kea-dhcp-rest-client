@@ -1,7 +1,7 @@
 {
   "name": "kea-dhcp-rest-client",
   "description": "A client for REST API of Kea DHCP server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "egs33",
   "bugs": "https://github.com/egs33/kea-dhcp-rest-client/issues",
   "dependencies": {

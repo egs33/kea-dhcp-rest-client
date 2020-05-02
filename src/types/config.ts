@@ -91,6 +91,22 @@ interface Subnet4 {
   reservations?: Reservation[];
 }
 
+export interface SharedNetwork {
+  name: string;
+  interface?: string;
+  'match-client-id'?: boolean;
+  'option-data'?: OptionData[];
+  'rebind-timer'?: number;
+  'authoritative'?: boolean;
+  'relay'?: {
+    'ip-address': string;
+  };
+  'renew-timer'?: number;
+  'reservation-mode'?: 'all' | 'out-of-pool';
+  'subnet4'?: Subnet4[];
+  'valid-lifetime'?: number;
+}
+
 export interface HostsDatabase {
   type: 'mysql' | 'postgres' | 'cql';
   name?: 'kea';
@@ -182,21 +198,7 @@ export interface Dhcp4Config {
   'sanity-checks'?: {
     'lease-checks'?: 'none' | 'warn' | 'fix' | 'fix-del' | 'del';
   };
-  'shared-networks'?: {
-    name: string;
-    interface?: string;
-    'match-client-id'?: boolean;
-    'option-data'?: OptionData[];
-    'rebind-timer'?: number;
-    'authoritative'?: boolean;
-    'relay'?: {
-      'ip-address': string;
-    };
-    'renew-timer'?: number;
-    'reservation-mode'?: 'all' | 'out-of-pool';
-    'subnet4'?: Subnet4[];
-    'valid-lifetime'?: number;
-  }[];
+  'shared-networks'?: SharedNetwork[];
   'server-hostname'?: string;
   subnet4?: Subnet4[];
 

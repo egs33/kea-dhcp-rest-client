@@ -88,7 +88,7 @@ interface Subnet4 {
   }[];
   subnet: string;
   interface?: string;
-  'reservation-mode'?: 'all' | 'out-of-pool';
+  'reservation-mode'?: 'all' | 'out-of-pool' | 'global' | 'disabled';
   reservations?: Reservation[];
 }
 

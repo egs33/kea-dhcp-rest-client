@@ -76,6 +76,7 @@ export interface Reservation {
   'server-hostname'?: string;
   'boot-file-name'?: string;
   'flex-id'?: string;
+  'client-classes'?: string[];
 }
 
 interface Subnet4 {

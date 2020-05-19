@@ -5,14 +5,14 @@ import type {
 
 interface ClientParams {
   scheme?: 'http' | 'https';
-  domain: string;
+  host?: string;
   port?: number;
   path?: string;
 }
 
 const defaultParams: ClientParams = {
   scheme: 'http',
-  domain: 'localhost',
+  host: 'localhost',
   port: 8080,
   path: '/',
 };
@@ -22,9 +22,9 @@ const composeBaseUrl = (param: string | ClientParams | undefined): string => {
     return `http://${param}/`;
   }
   const {
-    scheme, domain, port, path,
+    scheme, host, port, path,
   } = { ...defaultParams, ...param };
-  return `${scheme}://${domain}:${port}${path}`;
+  return `${scheme}://${host}:${port}${path}`;
 };
 
 export class KeaClient {

@@ -20,7 +20,7 @@ import { KeaClient } from 'kea-dhcp-rest-client';
 
 const client = new KeaClient({
   scheme: 'http',
-  domain: '127.0.0.1',
+  host: 'localhost',
   path: '/',
   port: 8080,
 });

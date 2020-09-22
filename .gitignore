@@ -4,3 +4,6 @@
 !/dist/.gitkeep
 /dist-esm/*
 !/dist-esm/.gitkeep
+
+yarn.lock
+package-lock.json

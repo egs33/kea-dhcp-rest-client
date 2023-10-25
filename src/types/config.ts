@@ -7,7 +7,7 @@ export interface Logger {
     flush?: boolean;
     pattern?: string;
   }[];
-  severity: 'NONE'|'FATAL'|'ERROR'|'WARN'|'INFO'|'DEBUG';
+  severity: 'NONE' | 'FATAL' | 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';
   debuglevel?: number;
 }
 
@@ -20,7 +20,7 @@ export interface ControlSocket {
   comment?: string;
   'socket-type': 'unix';
   'socket-name'?: string;
-  'user-context'?: {};
+  'user-context'?: unknown;
 }
 
 export interface ControlAgent {
@@ -236,7 +236,7 @@ export interface D2 {
   'ip-address'?: string;
   port?: number;
   'dns-server-timeout'?: number;
-  'user-context'?: {};
+  'user-context'?: unknown;
   'control-socket'?: ControlSocket;
   'ncr-protocol'?: 'UDP';
   'ncr-format'?: 'JSON';
@@ -250,7 +250,7 @@ export interface D2 {
         'ip-address'?: string;
         port?: number;
       }[];
-      'user-context'?: {};
+      'user-context'?: unknown;
     }[];
   };
   'reverse-ddns'?: {
@@ -263,7 +263,7 @@ export interface D2 {
         'ip-address': string;
         port?: number;
       }[];
-      'user-context'?: {};
+      'user-context'?: unknown;
     }[];
   };
 

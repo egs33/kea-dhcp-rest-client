@@ -36,9 +36,10 @@ export class KeaClient {
     this.baseUrl = composeBaseUrl(param);
   }
 
-  public async request(command: string, args?: {}): Promise<Response<unknown>>;
-  public async request(command: string, service?: Services, args?: {}): Promise<Response<unknown>>;
-  public async request(command: string, service?: Services|{}, args?: {}):
+  public async request(command: string, args?: unknown): Promise<Response<unknown>>;
+  public async request(command: string, service?: Services, args?: unknown): Promise<Response<unknown>>;
+  // eslint-disable-next-line  @typescript-eslint/no-redundant-type-constituents
+  public async request(command: string, service?: Services | unknown, args?: unknown):
   Promise<Response<unknown>> {
     const data = { command };
     if (Array.isArray(service)) {

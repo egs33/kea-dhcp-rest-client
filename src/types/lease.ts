@@ -9,7 +9,7 @@ export interface Lease4 {
   hostname?: string;
   'client-id'?: string;
   state?: 0 | 1 | 2;
-  'user-context'?: {};
+  'user-context'?: unknown;
 }
 
 export type Lease4Query = {

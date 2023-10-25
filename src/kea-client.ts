@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import type {
   NoArgResponse, Response, Services, Shutdown, Config, Status, Version, Lease, Subnet, Network,
 } from './types';
@@ -28,29 +27,17 @@ const composeBaseUrl = (param: string | ClientParams | undefined): string => {
 };
 
 export class KeaClient {
-  private axiosClient: AxiosInstance;
+  private baseUrl: string;
 
   constructor();
-
-  constructor(domain: string, axiosParams?: AxiosRequestConfig);
-
-  constructor(params: ClientParams, axiosParams?: AxiosRequestConfig);
-
-  constructor(param?: string | ClientParams, axiosParams?: AxiosRequestConfig) {
-    this.axiosClient = axios.create({
-      baseURL: composeBaseUrl(param),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      validateStatus: (status) => status < 600,
-      ...axiosParams,
-    });
+  constructor(domain: string);
+  constructor(params: ClientParams);
+  constructor(param?: string | ClientParams) {
+    this.baseUrl = composeBaseUrl(param);
   }
 
   public async request(command: string, args?: {}): Promise<Response<unknown>>;
-
   public async request(command: string, service?: Services, args?: {}): Promise<Response<unknown>>;
-
   public async request(command: string, service?: Services|{}, args?: {}):
   Promise<Response<unknown>> {
     const data = { command };
@@ -62,8 +49,14 @@ export class KeaClient {
     if (args) {
       Object.assign(data, { arguments: args });
     }
-    const response = await this.axiosClient.post('', data);
-    return response.data as Response<unknown>;
+    const response = await fetch(this.baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json() as Promise<Response<unknown>>;
   }
 
   public buildReport(service?: Services): Promise<NoArgResponse> {
